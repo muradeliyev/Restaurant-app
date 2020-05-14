@@ -20,7 +20,7 @@ class Restaurant {
         // this is the initial welcome page with log in option
         JPanel welcomePanel = new JPanel();
         // applying vertical alignment for items
-        welcomePanel.setLayout(new GridLayout(6, 1));
+        welcomePanel.setLayout(new GridLayout(8, 1));
 
         welcomePanel.setOpaque(true);
         welcomePanel.setBorder(new EmptyBorder(30, 10, 10, 10));
@@ -30,7 +30,7 @@ class Restaurant {
         JLabel label = new JLabel("Log in");
         label.setHorizontalAlignment(SwingConstants.CENTER);
 //        label.setBorder(new EmptyBorder(0, 0, 25, 0));
-        label.setFont(new Font("Arial", Font.PLAIN, 30));
+//        label.setFont(new Font("Arial", Font.PLAIN, 30));
         label.setOpaque(true);
 //        label.setBackground(Color.RED);
 
@@ -42,7 +42,17 @@ class Restaurant {
         // password label and textfield for logging in
         JLabel psswlabel = new JLabel("password");
         psswlabel.setBorder(new EmptyBorder(20, 0, 5, 0));
-        JTextField password = new JTextField(20);
+        JPasswordField password = new JPasswordField(20);
+
+        // login button
+        JButton login = new JButton("Log in");
+        login.setHorizontalAlignment(SwingConstants.CENTER);
+
+        // or sign in
+        JLabel or = new JLabel("or");
+        or.setHorizontalAlignment(SwingConstants.CENTER);
+
+        JButton signin = new JButton("Sign in");
 
         welcomePanel.add(label);
 
@@ -51,6 +61,11 @@ class Restaurant {
 
         welcomePanel.add(psswlabel);
         welcomePanel.add(password);
+
+        welcomePanel.add(login);
+
+        welcomePanel.add(or);
+        welcomePanel.add(signin);
         app.add(welcomePanel);
     }
 }
