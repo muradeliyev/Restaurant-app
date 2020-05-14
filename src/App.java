@@ -3,15 +3,12 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class Main extends JFrame implements MouseListener {
-    public static void main(String args[]) {
-
-    }
-
-    Main() {
+public class App extends JFrame implements MouseListener {
+    App() {
         super("Restaurant");
         setLayout(new FlowLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300, 400);
         setVisible(true);
     }
 
