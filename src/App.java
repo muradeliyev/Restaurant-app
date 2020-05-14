@@ -9,7 +9,6 @@ public class App extends JFrame implements MouseListener {
         setLayout(new FlowLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 400);
-        setVisible(true);
     }
 
     @Override
