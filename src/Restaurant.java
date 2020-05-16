@@ -3,7 +3,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.sql.PreparedStatement;
 
-class Restaurant {
+class Restaurant extends JFrame {
     App app;
 
     public static void main(String[] args) {
@@ -11,9 +11,12 @@ class Restaurant {
     }
 
     Restaurant() {
-        app = new App();
+        super("Restaurant");
+        setLayout(new FlowLayout());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300, 500);
         Welcome();
-        app.setVisible(true);
+        setVisible(true);
     }
 
     void Welcome() {
@@ -30,9 +33,14 @@ class Restaurant {
         JLabel label = new JLabel("Log in");
         label.setHorizontalAlignment(SwingConstants.CENTER);
 //        label.setBorder(new EmptyBorder(0, 0, 25, 0));
-//        label.setFont(new Font("Arial", Font.PLAIN, 30));
+        label.setFont(new Font("Arial", Font.PLAIN, 30));
         label.setOpaque(true);
 //        label.setBackground(Color.RED);
+
+        // container panel for inputs for login /////////////////////
+//        JPanel inputPanel = new JPanel();
+//        inputPanel.setOpaque(true);
+//        inputPanel.setBackground(Color.CYAN);
 
         // email label and textfield for logging in
         JLabel emaillabel = new JLabel("email");
@@ -44,18 +52,29 @@ class Restaurant {
         psswlabel.setBorder(new EmptyBorder(20, 0, 5, 0));
         JPasswordField password = new JPasswordField(20);
 
+//        inputPanel.add(emaillabel);
+//        inputPanel.add(email);
+
+//        inputPanel.add(psswlabel);
+//        inputPanel.add(password);
+
+        //////////////////////////////////////////////////////////////////
         // login button
         JButton login = new JButton("Log in");
         login.setHorizontalAlignment(SwingConstants.CENTER);
+//        login.setBorder(new EmptyBorder(20, 10, 10, 0));
+        login.setOpaque(true);
 
         // or sign in
         JLabel or = new JLabel("or");
         or.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JButton signin = new JButton("Sign in");
+        // basically signing in and creating new account are the same things
+        JButton signin = new JButton("Create an account");
 
         welcomePanel.add(label);
 
+//        welcomePanel.add(inputPanel);
         welcomePanel.add(emaillabel);
         welcomePanel.add(email);
 
@@ -66,6 +85,6 @@ class Restaurant {
 
         welcomePanel.add(or);
         welcomePanel.add(signin);
-        app.add(welcomePanel);
+        add(welcomePanel);
     }
 }
