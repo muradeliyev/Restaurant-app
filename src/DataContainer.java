@@ -1,0 +1,80 @@
+import java.util.ArrayList;
+
+public class DataContainer {
+    static ArrayList<CustomerAccount> customers;
+    static ArrayList<AdminAccount> admins;
+
+    public DataContainer() {
+        customers = new ArrayList<>();
+        admins = new ArrayList<>();
+    }
+
+    void add(AdminAccount account) {
+        admins.add(account);
+    }
+    void add(CustomerAccount account) {
+        customers.add(account);
+    }
+    void removeAdmin(String username) {
+        for (int i = 0; i < admins.size(); i++) {
+            AdminAccount account = admins.get(i);
+            if (account.getUsername().equals(username))
+                admins.remove(account);
+        }
+    }
+    void removeCustomer(String username) {
+        for (int i = 0; i < customers.size(); i++) {
+            CustomerAccount account = customers.get(i);
+            if (account.getUsername().equals(username))
+                customers.remove(account);
+        }
+    }
+    boolean isValidUsername(String username) {
+        for (int i = 0; i < customers.size(); i++)
+            if (customers.get(i).getUsername().equals(username))
+                return false;
+
+        for (int i = 0; i < admins.size(); i++)
+            if (admins.get(i).getUsername().equals(username))
+                return false;
+
+        return true;
+    }
+    boolean isValidEmail(String email) {
+        for (int i = 0; i < customers.size(); i++)
+            if (customers.get(i).getEmail().equals(email))
+                return false;
+
+        for (int i = 0; i < admins.size(); i++)
+            if (admins.get(i).getEmail().equals(email))
+                return false;
+
+        return true;
+    }
+    CustomerAccount getCustomer(String email, String password) {
+        for (int i = 0; i < customers.size(); i++) {
+            CustomerAccount account = customers.get(i);
+            if (account.getEmail().equals(email) && account.getPassword().equals(password)) {
+                return account;
+            }
+        }
+        return null;
+    }
+    AdminAccount getAdmin(String email, String password) {
+        for (int i = 0; i < admins.size(); i++) {
+            AdminAccount account = admins.get(i);
+            if (account.getEmail().equals(email) && account.getPassword().equals(password)) {
+                return account;
+            }
+        }
+        return null;
+    }
+    public Account getAccount(String email, String password) {
+        Account account = getCustomer(email, password);
+        if (account instanceof CustomerAccount) return account;
+        account = getAdmin(email, password);
+        if (account instanceof AdminAccount) return account;
+
+        return null;
+    }
+}
