@@ -3,10 +3,12 @@ import java.util.ArrayList;
 public class DataContainer {
     static ArrayList<CustomerAccount> customers;
     static ArrayList<AdminAccount> admins;
+    ArrayList<Worker> workers;
 
     public DataContainer() {
         customers = new ArrayList<>();
         admins = new ArrayList<>();
+        workers = new ArrayList<>();
     }
 
     void add(AdminAccount account) {
@@ -14,6 +16,17 @@ public class DataContainer {
     }
     void add(CustomerAccount account) {
         customers.add(account);
+    }
+    void add(Worker account) {
+        workers.add(account);
+    }
+    void removeWorker(int id) {
+        for (int i = 0; i < workers.size(); i++) {
+            if (id == workers.get(i).id) {
+                workers.remove(workers.get(i));
+                break;
+            }
+        }
     }
     void removeAdmin(String username) {
         for (int i = 0; i < admins.size(); i++) {
@@ -71,9 +84,9 @@ public class DataContainer {
     }
     public Account getAccount(String email, String password) {
         Account account = getCustomer(email, password);
-        if (account instanceof CustomerAccount) return account;
+        if (account != null) return account;
         account = getAdmin(email, password);
-        if (account instanceof AdminAccount) return account;
+        if (account != null) return account;
 
         return null;
     }
