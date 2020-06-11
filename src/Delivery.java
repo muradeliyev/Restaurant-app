@@ -2,15 +2,17 @@ import java.util.Arrays;
 
 public class Delivery {
     private int[] meals;
-    private String adress;
+    private String address;
     private String paymentMethod;
-    Delivery(int[] meals, String adress, String paymentMethod) {
+    Functions functions = new Functions();
+    Delivery(int[] meals, String address, String paymentMethod) {
         this.meals = meals;
-        this.adress = adress;
+        this.address = address;
         this.paymentMethod = paymentMethod;
     }
     public String toString() {
-        return String.format("address: %s, payment or card number: %s",
-             this.adress, this.paymentMethod);
+        return String.format("%s%s",
+                functions.center(this.address, 21, ' '),
+                functions.center(this.paymentMethod, 32, ' '));
     }
 }

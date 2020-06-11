@@ -14,8 +14,8 @@ public class CustomerAccount extends Account {
         reservations.add(new Reservation(loc, date, meals));
     }
 
-    public void orderDelivery(int[] meals, String adress, String paymentMethod) {
-        this.deliveries.add(new Delivery(meals, adress, paymentMethod));
+    public void orderDelivery(int[] meals, String address, String paymentMethod) {
+        this.deliveries.add(new Delivery(meals, address, paymentMethod));
     }
     public ArrayList<Reservation> getReservations() {
         return this.reservations;

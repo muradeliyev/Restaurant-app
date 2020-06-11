@@ -23,9 +23,7 @@ public class Dictionary {
         }
     }
     float get(String key) {
-        if (this.keys.contains(key)) {
-            return values.get(keys.indexOf(key));
-        }
+        if (this.keys.contains(key)) return values.get(keys.indexOf(key));
         return 0;
     }
     void remove(int index) {
@@ -34,12 +32,7 @@ public class Dictionary {
     }
     String[] getKeys() {
         String[] result = new String[this.keys.size()];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = this.keys.get(i);
-        }
+        for (int i = 0; i < result.length; i++) result[i] = this.keys.get(i);
         return result;
-    }
-    boolean contains(String key) {
-        return keys.contains(key);
     }
 }

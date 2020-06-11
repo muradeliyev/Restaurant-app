@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class DataContainer {
-    static ArrayList<CustomerAccount> customers;
-    static ArrayList<AdminAccount> admins;
+    ArrayList<CustomerAccount> customers;
+    ArrayList<AdminAccount> admins;
     ArrayList<Worker> workers;
 
     public DataContainer() {
@@ -54,6 +54,8 @@ public class DataContainer {
         return true;
     }
     boolean isValidEmail(String email) {
+        if (!(email.contains("@"))) return false;
+
         for (int i = 0; i < customers.size(); i++)
             if (customers.get(i).getEmail().equals(email))
                 return false;
